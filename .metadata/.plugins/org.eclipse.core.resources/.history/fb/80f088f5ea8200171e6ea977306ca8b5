@@ -1,0 +1,47 @@
+package Ïß³Ì²âÊÔ;
+
+public class LockTest {
+
+
+	int i = 10;
+	public static void main(String[] args) {
+	
+		
+	}
+	
+	public class Thread1 implements Runnable{
+
+		
+		@Override
+		public void run() {
+
+			while(true){
+				
+				synchronized(this){
+					
+					i++;
+					System.out.println(i);
+				}
+			}
+		}
+		
+	}
+	
+	public class Thread2 implements Runnable{
+
+		@Override
+		public void run() {
+
+			while(true){
+				
+				synchronized(this){
+					
+					i--;
+					System.out.println("¼õ1->>>"+i);
+				}
+			}
+		}
+		
+	}
+	
+}

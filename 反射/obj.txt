@@ -1,0 +1,4 @@
+com.wk.bean.Person
+id=11
+name=ÍõÎå
+salary=782

@@ -1,0 +1,11 @@
+package com.wk.entity;
+
+
+/**
+ * Ïû·Ñ³¡¾°
+ * @author wk
+ *
+ */
+public class Scene {
+
+}

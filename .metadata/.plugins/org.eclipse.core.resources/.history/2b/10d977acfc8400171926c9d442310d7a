@@ -1,0 +1,95 @@
+package com.wk.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.wk.entity.ConsumeInfo;
+import com.wk.entity.MobileCard;
+import com.wk.entity.ServicePackage;
+import com.wk.enums.TypeEnum;
+import com.wk.service.IOptionsService;
+import com.wk.utils.CardUtil;
+import com.wk.utils.DaoUtil;
+
+
+/*
+ * 功能实现类
+ */
+
+public class OptionsService implements IOptionsService{
+
+	
+	
+	
+		
+	@Override
+	public boolean register(MobileCard mCard) {
+		
+		CardUtil.addCard(mCard);
+		return true;
+	}
+
+	@Override
+	public MobileCard login(MobileCard mCard) {
+		
+		List<MobileCard> mCards;
+		try {
+			mCards = DaoUtil.readAll();
+			for(MobileCard mc : mCards){
+				if(mc.getCardNumber().equals(mCard.getCardNumber()) && mc.getPassword().equals(mCard.getPassword()))
+					return mc;
+			}
+			return null;
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
+	}
+
+	@Override
+	public double consumeQueryCurrMon(MobileCard mCard) {
+		
+		double money = 58;
+		Map<String, List<ConsumeInfo>> map = CardUtil.getMap();
+		List<ConsumeInfo> list = map.get(mCard.getCardNumber());
+		
+		ServicePackage serPackage = mCard.getSerPackage();
+		
+		for(ConsumeInfo info : list){
+			
+			if(info.getType() == TypeEnum.通话){
+				int talkTime = info.getConsumeData();
+				if(talkTime >= 500)
+					money+= 0.2 * (talkTime - 500);
+				
+			}
+			if(info.getType() == TypeEnum.短信){
+				int smsCount = info.getConsumeData();
+				if(smsCount >= 30)
+					money+=0.1 * (smsCount - 30);
+			}
+			if(info.getType() == TypeEnum.上网){
+				int flow = info.getConsumeData();
+				if(flow > 1){
+					
+				}
+			}
+		}
+	}
+
+	@Override
+	public void remainingPackage() {
+		// TODO 自动生成的方法存根
+		
+	}
+
+	@Override
+	public void addAndPrintConsume(MobileCard card, ConsumeInfo info) {
+		
+		String number = card.getCardNumber();
+		
+		CardUtil.addConsumeInfo(number, info);
+		CardUtil.printConsumeInfo(number);
+		
+	}
+
+}

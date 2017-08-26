@@ -1,0 +1,73 @@
+package com.wk.test;
+
+public class ThreadTest {
+
+	
+	
+
+}
+
+
+class Climb{
+	
+	
+	int time;
+	int step;
+
+	public Climb(){
+		
+		time = 0;
+		step = 0;
+	}
+
+}
+
+class Young implements Runnable{
+
+	private Climb climb;
+	public Young(Climb climb) {
+		this.climb = climb;
+	}
+	
+	@Override
+	public void run() {
+		
+	
+		while(true){
+			try {
+				
+				Thread.sleep(1000);
+				climb.step+=100;
+				climb.time++;
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+}
+
+
+class Old implements Runnable{
+
+	private Climb climb;
+	public Old(Climb climb) {
+		this.climb = climb;
+	}
+	
+	@Override
+	public void run() {
+		
+		try {
+			
+			Thread.sleep(3000);
+			climb.step+=100;
+			climb.time+=3;
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+}

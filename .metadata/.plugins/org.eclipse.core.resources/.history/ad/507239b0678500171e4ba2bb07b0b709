@@ -1,0 +1,233 @@
+package com.wk.utils;
+
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.Node;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
+
+import com.wk.entity.MobileCard;
+import com.wk.entity.NetPackage;
+import com.wk.entity.ServicePackage;
+import com.wk.entity.SuperPackage;
+import com.wk.entity.TalkPackage;
+
+
+public class DaoUtil {
+
+	private static File file;
+	DaoUtil daoUtil;
+	private ServicePackage sPackage;
+	//保存临时套餐对象
+	public void setPackage(ServicePackage sPackage){
+		
+		this.sPackage = sPackage;
+	}
+	public ServicePackage getPackage(){
+		return sPackage;
+	}
+	
+	//加载卡信息
+	static{
+		
+		//加载文件
+		file = new File("./src/com/wk/properties/mobileCard.xml");
+		
+	}
+	
+	
+	
+	/*
+	 * 读取卡信息
+	 */
+	public MobileCard readOne(MobileCard mCard) throws Exception{
+		
+		String cardNumber = mCard.getCardNumber();
+		
+		List<MobileCard> aCards = readAll();
+		for (MobileCard mobileCard : aCards) {
+			
+			if(cardNumber.equals(mobileCard.getCardNumber())){
+				//创建具体套餐对象
+				ServicePackage sp = daoUtil.getPackage();
+				
+				mobileCard.setSerPackage(sp);
+				sp = null;
+				return mobileCard;
+			}
+		}
+		return null;
+	}
+	
+	
+	/*
+	 * 解析并封装为对象，获取全部卡对象
+	 */
+	public List<MobileCard> readAll() throws Exception{
+		
+		List<MobileCard> mCards = new ArrayList<>();
+		
+		
+		SAXReader reader = new SAXReader();
+		//封装为Document对象
+		Document doc =  reader.read(file);
+		//获取根节点并遍历子节点
+		Element elem = doc.getRootElement();
+		Iterator<Element> it = elem.elementIterator();
+		
+		while(it.hasNext()){
+			
+			MobileCard mc = new MobileCard();
+			
+			Element mCardElem = it.next();
+			mc.setCardNumber(mCardElem.attributeValue("cardNumber"));
+			mc.setUserName(mCardElem.element("userName").getText());
+			mc.setPassword(mCardElem.element("password").getText());
+			
+			
+			
+			mc.setConsumeAmount(Double.parseDouble((mCardElem.element("consumeAmount").getText())));
+			mc.setRealTalkTime(Integer.parseInt(mCardElem.element("realTalkTime").getText()));
+			mc.setRealSMSCount(Integer.parseInt(mCardElem.element("realSMSCount").getText()));
+			mc.setRealFlow(Integer.parseInt(mCardElem.element("realFlow").getText()));
+			
+			//添加到集合
+			mCards.add(mc);
+		}
+		return mCards;
+	}
+	
+	
+	/*
+	 * 保存卡信息
+	 */
+	public void write(MobileCard mCard) throws Exception{
+		
+		SAXReader reader = new SAXReader();
+		//封装为Document对象
+		Document doc =  reader.read(file);
+		//获取一个根标签
+		Element rootElem = doc.getRootElement();
+		//增加子标签
+		Element mcElem = rootElem.addElement("mobileCard");
+		//增加属性
+		mcElem.addAttribute("cardNumber", mCard.getCardNumber());
+		//增加子标签
+		Element userNameElem = mcElem.addElement("userName");
+		userNameElem.setText(mCard.getUserName());
+		
+		Element passwordElem = mcElem.addElement("password");
+		passwordElem.setText(mCard.getPassword());
+		
+		Element serPackageElem = mcElem.addElement("serPackage");
+		ServicePackage serPackage = mCard.getSerPackage();
+		//保存套餐
+		daoUtil = new DaoUtil();
+		daoUtil.setPackage(serPackage);
+		if(serPackage instanceof TalkPackage)
+			serPackageElem.setText("话唠套餐");
+		if(serPackage instanceof NetPackage)
+			serPackageElem.setText("网虫套餐");
+		if(serPackage instanceof SuperPackage)
+			serPackageElem.setText("超人套餐");
+		
+		Element consumeAmountElem = mcElem.addElement("consumeAmount");
+		double consumeAmount = mCard.getConsumeAmount();
+		
+		consumeAmountElem.setText((consumeAmount == 0 ? 0 : consumeAmount) + "");
+
+		Element realTalkTimeElem = mcElem.addElement("realTalkTime");
+		int realTalkTime = mCard.getRealTalkTime();
+		realTalkTimeElem.setText((realTalkTime == 0 ? 0 : realTalkTime) + "");
+		
+		Element realSMSCountElem = mcElem.addElement("realSMSCount");
+		int realSMSCount = mCard.getRealSMSCount();
+		realSMSCountElem.setText((realSMSCount == 0 ? 0 : realSMSCount)+"");
+		
+		Element realFlowElem = mcElem.addElement("realFlow");
+		int realFlow = mCard.getRealFlow();
+		realFlowElem.setText((realFlow == 0 ? 0 : realFlow)+"");
+		
+		FileOutputStream fis = new FileOutputStream(file);
+		XMLWriter writer = new XMLWriter(fis,OutputFormat.createPrettyPrint());
+		writer.write(doc);
+		if(writer!=null)
+			writer.close();
+		
+	}
+	
+	
+	
+	
+	
+	/*
+	 * 删除卡号
+	 */
+	public static void deleteOne(MobileCard card) throws Exception{
+		
+		SAXReader reader = new SAXReader();
+		//封装为Document对象
+		Document doc =  reader.read(file);
+		//获取一个根标签
+		Element rootElem = doc.getRootElement();
+
+		
+		//遍历所有卡对象
+		Iterator<Element> it = rootElem.elementIterator("mobileCard");
+		while(it.hasNext()){
+			
+			Element mCardElem = it.next();
+			if(card.getCardNumber().equals(mCardElem.attribute("cardNumber").getValue())){
+				
+//				mCardElem.detach();   //全部删除
+				
+				delete(mCardElem);
+				break;
+			}
+			
+		}
+		
+		FileOutputStream fis = new FileOutputStream(file);
+		XMLWriter writer = new XMLWriter(fis,OutputFormat.createPrettyPrint());
+		writer.write(doc);
+		if(writer!=null)
+			writer.close();
+	}
+	
+	/*
+	 * 删除全部节点
+	 */
+	public static void delete(Element e){
+		
+		e.getParent().remove(e);
+		
+		List<Element> list = e.elements();
+		if(list != null){
+			for(Element element : list){
+				delete(element);
+			}
+		}
+		
+	}
+	
+	/*public static void main(String[] args) throws Exception {
+		
+		MobileCard mobileCard = new MobileCard();
+		mobileCard.setCardNumber("13945241327");
+		
+		ReadOrWriteUserUtil.write(mobileCard);
+		
+	}*/
+	
+}

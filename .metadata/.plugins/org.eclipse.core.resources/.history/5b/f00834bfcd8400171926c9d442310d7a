@@ -1,0 +1,11 @@
+package com.wk.entity;
+
+
+/**
+ * 消费信息
+ * @author wk
+ *
+ */
+public class ConsumeInfo {
+
+}

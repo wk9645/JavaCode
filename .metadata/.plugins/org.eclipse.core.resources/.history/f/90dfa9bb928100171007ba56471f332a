@@ -1,0 +1,97 @@
+package com.wk.test;
+
+public class ThreadTest {
+
+	
+	public static void main(String[] args) {
+		
+		Climb climb = new Climb();
+		
+		
+			new Thread(new Young(climb)).start();
+			new Thread(new Old(climb)).start();
+	}
+	
+
+}
+
+
+class Climb{
+	
+	
+	int time;
+	int step;
+
+	public Climb(){
+		
+		time = 0;
+		step = 0;
+	}
+
+}
+
+class Young implements Runnable{
+
+	private Climb climb;
+	public Young(Climb climb) {
+		this.climb = climb;
+	}
+	
+	@Override
+	public void run() {
+		
+		boolean flag = true;
+		while(flag){
+			try {
+				
+				if(climb.step == 1200){
+					System.out.println("年轻人已经爬到顶了");
+					flag = false;
+				}else{
+					
+					Thread.sleep(1000);
+					climb.step+=100;
+					climb.time++;
+					System.out.println("年轻人爬了100米");
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+}
+
+
+class Old implements Runnable{
+
+	private Climb climb;
+	public Old(Climb climb) {
+		this.climb = climb;
+	}
+	
+	@Override
+	public void run() {
+		
+		boolean flag = true;
+		while(flag){
+			
+			try {
+				if(climb.step == 1200){
+					System.out.println("老年人已经爬到顶了");
+					flag = false;
+				}else{
+					
+					Thread.sleep(3000);
+					climb.step+=100;
+					climb.time+=3;
+					System.out.println("老年人爬了100米");
+				}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}

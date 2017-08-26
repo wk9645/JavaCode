@@ -1,0 +1,45 @@
+package com.wk.entity;
+
+
+/**
+ * 消费信息
+ * @author wk
+ *
+ */
+public class ConsumeInfo {
+
+	
+	private int talkTime;
+	private int smsCount;
+	private int flow;
+	private double price;
+	public int getTalkTime() {
+		return talkTime;
+	}
+	public void setTalkTime(int talkTime) {
+		this.talkTime = talkTime;
+	}
+	public int getSmsCount() {
+		return smsCount;
+	}
+	public void setSmsCount(int smsCount) {
+		this.smsCount = smsCount;
+	}
+	public int getFlow() {
+		return flow;
+	}
+	public void setFlow(int flow) {
+		this.flow = flow;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
+	
+	
+	
+}

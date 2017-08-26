@@ -1,0 +1,169 @@
+import java.util.Arrays;
+
+public class Test {
+
+	
+	public static void main(String[] args) {
+		
+		int[] arr = new int[]{4,7,1,8,3,9,2,6,5};
+		
+		//1°¢√∞≈›≈≈–Ú
+//		puppleSort(arr);
+		
+		//2°¢ºÚµ•—°‘Ò≈≈–Ú
+//		select(arr);
+		
+		//3°¢÷±Ω”≤Â»Î≈≈–Ú
+//		insert(arr);
+		
+		//4°¢øÏÀŸ≈≈–Ú
+//		sort(arr, 0, arr.length-1);
+		
+		//5°¢œ£∂˚≈≈–Ú
+		shell(arr);
+		System.out.println(Arrays.toString(arr));
+	}
+	
+	
+	
+	/*
+	 * 1°¢√∞≈›≈≈–Ú
+	 */
+	public static void puppleSort(int[] arr){
+		
+		for(int i=0; i<arr.length - 1; i++){
+			for(int j=0; j<arr.length - i - 1; j++){
+				if(arr[j] > arr[j+1]){
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+					
+			}
+		}
+	}
+	
+	/*
+	 * 2°¢ºÚµ•—°‘Ò≈≈–Ú
+	 */
+	public static void select(int[] arr){
+		
+		for(int i=0; i<arr.length; i++){
+			for(int j=i+1; j<arr.length; j++){
+				if(arr[i]>arr[j]){
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		
+	}
+	
+	/*
+	 * 3°¢÷±Ω”≤Â»Î≈≈–Ú
+	 */
+	
+	public static void insert(int[] arr){
+		
+		for(int i=1; i<arr.length; i++){
+			int j = 0;
+			int temp = arr[i];
+			for(j=i; j>0; j--){
+				if(temp > arr[j-1])
+					break;
+				arr[j] = arr[j-1];
+			}
+			arr[j] = temp;
+			
+			/*j=i;
+			while(j>0 && temp < arr[j-1]){
+				
+				arr[j] = arr[j-1];
+				j--;
+			}
+			arr[j] = temp;*/
+		}
+	}
+	
+	/*
+	 * 4°¢øÏÀŸ≈≈–Ú
+	 */
+	public static int quickSort(int[] arr, int front, int back){
+		
+		
+		int base = arr[back];
+		
+		while(front < back){
+			
+			for(; front<back; front++){
+				if(arr[front] > base){
+					arr[back] = arr[front];
+					break;
+				}
+			}
+		
+			for(; front<back; back--){
+				if(arr[back] < base){ 
+					arr[front] = arr[back];
+					break;
+				}
+			}
+		}
+		arr[back] = base;
+		return back;
+	}
+	
+	
+	public static void sort(int[] arr,int front,int back ){
+		
+		int index = quickSort(arr, front, back);
+		if(front<back){
+			
+			sort(arr, index+1, back);
+			sort(arr, front, index-1);
+			
+		}
+	}
+	
+	
+	/*
+	 * 5°¢œ£∂˚≈≈–Ú
+	 */
+	public static void shell(int arr[]){
+		
+		if(arr == null || arr.length < 0){
+			return;
+		}
+		
+		//º∆À„‘ˆ¡ø
+		int h = 1;
+		while(h < arr.length / 3){
+			h = h * 3 + 1;
+		}
+		
+		while(h<1){
+			
+			int temp = 0;
+			int j = 0;
+			for(int i=h; i<arr.length; i+=h){
+				
+				temp = arr[i];
+				j = h;
+				while(j>0 && arr[i] < arr[j-h]){
+					arr[j] = arr[j-h];
+					j-=h;
+				}
+				arr[j] = temp;
+			}
+			
+			//Àı–°‘ˆ¡ø
+			h = (h-1)/3;
+		}
+		
+		
+		
+	}
+	
+	
+}

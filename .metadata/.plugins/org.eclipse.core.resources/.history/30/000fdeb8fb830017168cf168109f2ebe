@@ -1,0 +1,44 @@
+package com.wk.service;
+
+import com.wk.entity.MobileCard;
+
+public interface IOptionsService {
+	
+	/*
+	 * 主要功能接口
+	 */
+	
+	
+	/**
+	 * 
+	 * @param user	1、用户信息
+	 * @return		注册状态，true为成功
+	 */
+	boolean register(MobileCard mCard);
+	
+	/**
+	 * 
+	 * @param user	2、登录用户
+	 * @return		登录状态，true为成功
+	 */
+	boolean login(MobileCard mCard); 
+	
+	
+	/**
+	 * 3、查询当月账单
+	 */
+	void consumeQueryCurrMon();
+	
+
+	/**
+	 * 4、套餐余量
+	 */
+	void remainingPackage();
+	
+	
+	/**
+	 * 5、添加和打印消费清单
+	 */
+	void addAndPrintConsume();
+	
+}

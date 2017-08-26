@@ -1,0 +1,14 @@
+package com.wk.service.impl;
+
+import com.wk.entity.MobileCard;
+import com.wk.service.ICallService;
+import com.wk.service.INetService;
+
+public class NetPackage extends ServicePackage implements INetService{
+
+	@Override
+	public int call(int minCount, MobileCard card) {
+		return 0;
+	}
+
+}

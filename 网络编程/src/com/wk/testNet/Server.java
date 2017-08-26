@@ -1,0 +1,23 @@
+package com.wk.testNet;
+
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server {
+
+	
+	public static void main(String[] args) throws Exception {
+		
+		//创建服务端socket
+		ServerSocket serverSocket = new ServerSocket(10001);
+		
+		while(true){
+			Socket socket = serverSocket.accept();
+			
+			LoginThread lt = new LoginThread(socket);
+			lt.start();
+		}
+		
+	}
+	
+}

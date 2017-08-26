@@ -1,0 +1,9 @@
+package com.wk.entity;
+
+public class SuperPackage extends Service{
+	
+	/**
+	 * ³¬ÈËÌ×²Í
+	 */
+	
+}

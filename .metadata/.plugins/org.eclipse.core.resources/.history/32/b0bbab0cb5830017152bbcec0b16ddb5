@@ -1,0 +1,14 @@
+package com.wk.entity;
+
+public class MobileCard {
+
+	
+	private String cardNumber;
+	private String userName;
+	private String password;
+	private SerivcePackage serPackage;
+	
+	
+	
+	
+}

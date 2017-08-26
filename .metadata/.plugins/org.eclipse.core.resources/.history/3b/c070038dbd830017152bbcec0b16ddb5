@@ -1,0 +1,14 @@
+package com.wk.service.impl;
+
+import com.wk.entity.MobileCard;
+
+public interface ISendService {
+
+	
+	/**
+	 * ¶ÌÐÅ½Ó¿Ú
+	 */
+	
+	
+	int send(int count, MobileCard card);
+}

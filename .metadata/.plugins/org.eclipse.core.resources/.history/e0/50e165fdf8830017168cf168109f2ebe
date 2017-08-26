@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mobileCords> 
+  <mobileCord cardNumber="123"> 
+    <userName>wk</userName>  
+    <password>1245</password>  
+    <serPackage>话唠套餐</serPackage>  
+    <consumeAmount>4.0</consumeAmount>  
+    <realTalkTime>5</realTalkTime>  
+    <realSMSCount>5</realSMSCount>  
+    <realFlow>8</realFlow> 
+  </mobileCord>  
+  <mobileCord cardNumber="13945241327">
+    <userName>翁凯</userName>
+    <password>1996</password>
+    <serPackage>话唠套餐</serPackage>
+    <consumeAmount>0.0</consumeAmount>
+    <realTalkTime>0</realTalkTime>
+    <realSMSCount>0</realSMSCount>
+    <realFlow>0</realFlow>
+  </mobileCord>
+</mobileCords>

@@ -1,0 +1,21 @@
+package com.wk.service.impl;
+
+import com.wk.entity.MobileCard;
+import com.wk.service.ICallService;
+import com.wk.service.INetService;
+
+public class SuperPackage extends ServicePackage implements INetService{
+
+	
+	
+	/**
+	 * 上网实现类
+	 */
+	
+	@Override
+	public int netPlay(int flow, MobileCard card) {
+		// TODO 自动生成的方法存根
+		return 0;
+	}
+
+}

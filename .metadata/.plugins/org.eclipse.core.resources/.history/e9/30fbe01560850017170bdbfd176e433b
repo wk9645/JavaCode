@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mobileCards> 
+  <mobileCard cardNumber="13914454347"> 
+    <userName>s</userName>  
+    <password>123</password>  
+    <serPackage>话唠套餐</serPackage>  
+    <consumeAmount>0.0</consumeAmount>  
+    <realTalkTime>0</realTalkTime>  
+    <realSMSCount>0</realSMSCount>  
+    <realFlow>0</realFlow> 
+  </mobileCard>  
+  <mobileCard cardNumber="13940577406"> 
+    <userName>wk</userName>  
+    <password>123</password>  
+    <serPackage>话唠套餐</serPackage>  
+    <consumeAmount>0.0</consumeAmount>  
+    <realTalkTime>0</realTalkTime>  
+    <realSMSCount>0</realSMSCount>  
+    <realFlow>0</realFlow> 
+  </mobileCard>  
+  <mobileCard cardNumber="13945657646">
+    <userName>hh</userName>
+    <password>123</password>
+    <serPackage>网虫套餐</serPackage>
+    <consumeAmount>0.0</consumeAmount>
+    <realTalkTime>0</realTalkTime>
+    <realSMSCount>0</realSMSCount>
+    <realFlow>0</realFlow>
+  </mobileCard>
+</mobileCards>

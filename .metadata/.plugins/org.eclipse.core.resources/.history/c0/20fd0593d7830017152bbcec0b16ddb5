@@ -1,0 +1,51 @@
+package com.wk.entity;
+
+import com.wk.service.ICallService;
+import com.wk.service.ISendService;
+
+public class TalkPackage extends ServicePackage implements ICallService,ISendService{
+
+	/**
+	 * 话唠套餐
+	 */
+	
+	
+	private int talkTime = 500;
+	private int smsCount = 30;
+	
+	/*public int getTalkTime() {
+		return talkTime;
+	}
+
+	public void setTalkTime(int talkTime) {
+		this.talkTime = talkTime;
+	}
+
+	public int getSmsCount() {
+		return smsCount;
+	}
+
+	public void setSmsCount(int smsCount) {
+		this.smsCount = smsCount;
+	}*/
+
+	@Override
+	protected void showInfo() {
+		super.showInfo();
+		
+	}
+	
+	@Override
+	public int call(int minCount, MobileCard card) {
+		
+		
+		return talkTime;
+	}
+
+	@Override
+	public int send(int count, MobileCard card) {
+		// TODO 自动生成的方法存根
+		return 0;
+	}
+
+}

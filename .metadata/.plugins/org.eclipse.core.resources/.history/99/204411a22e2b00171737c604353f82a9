@@ -1,0 +1,51 @@
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+
+/*
+ * 
+ * 输入一个字符串，打印每个字符以及出现的次数
+ * 输出格式为：字符(次数)字符(次数)...
+ * 
+ */
+
+
+public class TreeMapTest {
+	
+	public static String charCount(String str){
+		
+		
+		//char ch[] = new char[str.length()];
+		char[] ch = str.toCharArray();
+		TreeMap<Character, Integer> treeMap = new TreeMap<>();
+		int count = 0;
+		for(int i=0;i<ch.length;i++){
+			if(!(ch[i]>='a'&&ch[i]<='z'||ch[i]>='A'&&ch[i]<='Z'))
+				continue;
+			Integer value = treeMap.get(ch[i]);
+			if(value!=null)
+				count=value;
+			count++;
+			treeMap.put(ch[i], count);
+			count=0;
+		}	
+		//System.out.println(treeMap);
+		
+		StringBuffer sb = new StringBuffer();
+		Set<Map.Entry<Character, Integer>> set = treeMap.entrySet();
+		Iterator<Map.Entry<Character, Integer>> it = set.iterator();
+		while(it.hasNext()){
+			Map.Entry<Character, Integer> entry = it.next();
+			sb.append(entry.getKey()+"("+entry.getValue()+")");
+			
+		}
+		return sb.toString();
+	}
+	public static void main(String[] args) {
+		String str = charCount("aababcabcd");
+		System.out.println(str);
+	}	
+	
+}

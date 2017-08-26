@@ -1,0 +1,24 @@
+package com.wk.service;
+
+import com.wk.entity.User;
+
+public interface IOptions {
+	
+	/*
+	 * 主要功能接口
+	 */
+	
+	
+	/**
+	 * 
+	 * @param user	用户信息
+	 * @return		注册状态，true为成功
+	 */
+	boolean register(User user);
+	
+	
+	
+	
+	
+
+}

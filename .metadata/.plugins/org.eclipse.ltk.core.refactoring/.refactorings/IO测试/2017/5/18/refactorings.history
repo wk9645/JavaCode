@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="将类型“MyBuffered”重命名为“MyBufferedTest”&#x0D;&#x0A;－ 原始项目：“IO测试”&#x0D;&#x0A;－ 原始元素：“MyBuffered”&#x0D;&#x0A;－ 重命名的元素：“MyBufferedTest”&#x0D;&#x0A;－ 更新对已重构元素的引用&#x0D;&#x0A;－ 更新注释和字符串中出现的文本" description="重命名类型“MyBuffered”" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{MyBuffered.java[MyBuffered" matchStrategy="1" name="MyBufferedTest" qualified="false" references="true" similarDeclarations="false" stamp="1493641101145" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;ZIPFile.java&apos; to &apos;IO测试/src/（缺省包）&apos;&#x0D;&#x0A;－ 原始项目：“IO测试”&#x0D;&#x0A;－ 目标元素：“IO测试/src/（缺省包）”&#x0D;&#x0A;－ 原始元素：“com.wk.test1.ZIPFile.java”&#x0D;&#x0A;－ 更新对已重构元素的引用" description="移动编译单元" destination="/src&lt;" element1="/src&lt;com.wk.test1{ZIPFile.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1499051426003" units="1" version="1.0"/>
+</session>

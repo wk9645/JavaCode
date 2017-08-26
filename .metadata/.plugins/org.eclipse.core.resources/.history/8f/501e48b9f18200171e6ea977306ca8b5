@@ -1,0 +1,32 @@
+package com.wk.test2;
+
+import java.security.PrivilegedActionException;
+
+public class MyThread {
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public class Cal{
+	
+		int i=0;
+		
+		public synchronized void add(){
+			
+			System.out.println("º”“ª£∫" + i++);
+		}
+		
+		public synchronized void sub(){
+			
+			System.out.println("ºı“ª£∫" + i--);
+		}
+		
+	}
+	
+}

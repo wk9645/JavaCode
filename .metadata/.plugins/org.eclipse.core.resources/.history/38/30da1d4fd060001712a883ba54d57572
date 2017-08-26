@@ -1,0 +1,88 @@
+package 线程测试;
+
+
+
+/**
+ * 
+ * @author asus
+ *
+ * 分别使用多线程访问同步代码块和
+ * 同步方法，当锁不同时观察输出
+ * 
+ * 当同步代码块的锁为一个对象时，两个线程在访问时
+ * 可能会出现安全问题，这是因为多线程访问时必须锁要相同
+ * 而同步方法锁是this，因此同步代码块锁也应该时this
+ *
+ */
+
+class MyRunnable implements Runnable{ 
+	
+	private int ticket = 100;
+	boolean flag = true;
+	Object ob = new Object();
+	@Override
+	public void run() {
+		// TODO 自动生成的方法存根
+		
+		if(flag)
+		{
+			while(true)
+			{
+				synchronized (this)
+				{
+					if(ticket > 0)
+					{
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							// TODO 自动生成的 catch 块
+							e.printStackTrace();
+						}
+						System.out.println(Thread.currentThread().getName()+" "+"code--->"+" "+ticket--);
+					}
+				}
+				
+				}
+			}
+		else 
+		{
+			while(true)
+			{
+				test();
+			}
+		}
+	}
+	
+	//非静态同步方法
+	//同步方法中的锁为this
+	public synchronized void test() {
+		if (ticket > 0) {
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+			System.out.println(Thread.currentThread().getName()+" "+"test--->"+" "+ticket--);
+		}
+	}
+}
+
+public class Test1 {
+	
+	public static void main(String[] args) {
+		MyRunnable mr = new MyRunnable();
+		Thread t1 = new Thread(mr);
+		Thread t2 = new Thread(mr);
+		t1.start();
+		try {
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		mr.flag = false;
+		t2.start();
+	}
+
+}

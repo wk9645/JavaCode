@@ -1,0 +1,5 @@
+package com.wk.entity;
+
+public interface SuperPackage {
+
+}

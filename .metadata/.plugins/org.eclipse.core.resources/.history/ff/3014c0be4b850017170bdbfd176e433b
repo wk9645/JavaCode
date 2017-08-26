@@ -1,0 +1,47 @@
+package com.wk.entity;
+
+import com.wk.service.ICallService;
+import com.wk.service.INetService;
+import com.wk.service.ISendService;
+
+
+	
+	/**
+	 * 超人套餐
+	 */
+
+
+public class SuperPackage extends ServicePackage implements ICallService,ISendService,INetService{
+
+	
+	private int talkTime = 200;
+	private int smsCount = 50;
+	private int flow = 1;	
+	
+	@Override
+	public double netPlay(MobileCard mCard) {
+
+		
+	}
+
+	@Override
+	public double send(MobileCard card) {
+		return 0;
+	}
+
+	@Override
+	public double call(int minCount, MobileCard mCardard) {
+		
+		int realTalkTime = mCard.getRealTalkTime();
+		if(realTalkTime >= talkTime){
+			price+= 0.2 * (realTalkTime - talkTime);
+		}
+		return price;
+	}
+	@Override
+	public void showInfo() {
+		
+		System.out.println("超人套餐：通话时长为200分钟/月，短信条数为50条/月，上网流量为1GB/月" );
+	}
+	
+}

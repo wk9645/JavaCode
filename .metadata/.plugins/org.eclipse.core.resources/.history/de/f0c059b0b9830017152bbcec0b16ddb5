@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<mobileCords>
+    <mobileCord cardNumber="">
+        <userName></userName>
+        <password></password>
+        <serPackage></serPackage>
+        <consumeAmount></consumeAmount>
+        <realTalkTime></realTalkTime>
+        <realSMSCount></realSMSCount>
+        <realFlow></realFlow>
+    </mobileCord>
+    
+    
+</mobileCords>

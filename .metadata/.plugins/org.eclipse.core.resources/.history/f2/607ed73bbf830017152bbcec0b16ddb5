@@ -1,0 +1,13 @@
+package com.wk.entity;
+
+import com.wk.service.ICallService;
+import com.wk.service.INetService;
+import com.wk.service.ISendService;
+
+public class SuperPackage extends ServicePackage implements ICallService,ISendService,INetService{
+	
+	/**
+	 * ³¬ÈËÌ×²Í
+	 */
+	
+}

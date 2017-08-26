@@ -1,0 +1,17 @@
+package com.wk.service.impl;
+
+public class ServicePackage {
+
+	
+	
+	protected Double price;		//价格
+	
+	/**
+	 * 套餐信息
+	 */
+	protected void showInfo() {
+		
+	}
+	
+	
+}

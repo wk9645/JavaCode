@@ -1,0 +1,40 @@
+import java.security.spec.ECPrivateKeySpec;
+import java.util.Set;
+import java.util.TreeMap;
+
+import javax.sql.rowset.CachedRowSet;
+
+/*
+ * 
+ * 输入一个字符串，打印每个字符以及出现的次数
+ * 
+ * 
+ */
+
+
+public class TreeMapTest {
+	
+	public static String charCount(String str){
+		
+		int count = 0;
+		//char ch[] = new char[str.length()];
+		char[] ch = str.toCharArray();
+		TreeMap<Character, Integer> treeMap = new TreeMap<>();
+		for(int i=0;i<ch.length;i++){
+			if(!(ch[i]>='a'&&ch[i]<='z'||ch[i]>='A'&&ch[i]<='Z'))
+				continue;
+			Integer value = treeMap.get(ch[i]);
+			if(value == null)
+				count=value;
+			count++;
+			treeMap.put(ch[i], count);
+			count=0;
+		}	
+		System.out.println(treeMap);
+		return null;
+	}
+	public static void main(String[] args) {
+		charCount("aababcabcd");
+	}	
+	
+}

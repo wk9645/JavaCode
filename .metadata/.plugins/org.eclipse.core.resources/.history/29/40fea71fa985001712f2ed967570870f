@@ -1,0 +1,17 @@
+package com.wk.entity;
+
+
+/**
+ * 消费场景
+ * @author wk
+ *
+ */
+public class Scene {
+
+	private String type;			//类型
+	private int data;				//数据
+	private String description;		//描述
+	
+	
+	
+}

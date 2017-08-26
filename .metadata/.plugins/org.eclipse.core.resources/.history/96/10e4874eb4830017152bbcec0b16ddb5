@@ -1,0 +1,16 @@
+package com.wk.entity;
+
+public class SerivcePackage {
+
+	
+	protected Double price;
+	
+	/**
+	 * Ì×²ÍÐÅÏ¢
+	 */
+	protected void showInfo() {
+		
+	}
+	
+	
+}

@@ -1,0 +1,16 @@
+package com.wk.service;
+
+import com.wk.entity.MobileCard;
+
+public interface INetService {
+
+	
+	/**
+	 *	иомЬ╫с©з 
+	 */
+	
+	
+	
+	int netPlay(int minCount, MobileCard card);
+	
+}

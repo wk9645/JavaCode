@@ -1,0 +1,31 @@
+package com.wk.entity;
+
+import com.wk.service.INetService;
+
+
+/**
+ * 网虫套餐
+ */
+
+
+public class NetPackage extends ServicePackage implements INetService{
+
+	
+	private int flow;
+	
+	@Override
+	public int netPlay(MobileCard card) {
+		
+		int realFlow = card.getRealFlow();
+		if(realFlow >= )
+		return 0;
+	}
+
+	
+	@Override
+	public void showInfo() {
+		
+		System.out.println("网虫套餐：上网流量为3GB/月" );
+		
+	}
+}

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="删除资源“智能家居”" deleteContents="false" description="删除资源“智能家居”" element1="/智能家居" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1494984756117"/>&#x0A;<refactoring comment="删除资源“测试”" deleteContents="false" description="删除资源“测试”" element1="/测试" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1495202045481"/>&#x0A;<refactoring comment="删除资源“测试”" deleteContents="false" description="删除资源“测试”" element1="/测试" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1495202759444"/>
+</session>

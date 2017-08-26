@@ -1,0 +1,10 @@
+package com.wk.entity;
+
+public class MobileCard {
+
+	private String userName;
+	private String 
+	
+	
+	
+}

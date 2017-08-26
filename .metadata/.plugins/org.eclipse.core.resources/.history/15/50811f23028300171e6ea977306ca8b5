@@ -1,0 +1,107 @@
+package com.wk.test2;
+
+/*
+ * 子线程执行5次，主线程执行5次，这样交替执行50次
+ * 
+ */
+public class MainAndSubThread {
+
+	private static ModifyType mt = new ModifyType();
+	
+	public static void main(String[] args) {
+		
+		
+		subExecute();
+		
+		for(int i =0; i<50; i++){
+			
+			mainExecute();
+		}
+	}
+	
+	
+	//执行主线程
+	public static void mainExecute(){
+		
+		mt.add();
+	}
+	//执行子线程
+	public static void subExecute(){
+		
+		new Thread(new SubThread(mt)).start();
+		
+	}
+	
+}
+
+class ModifyType{
+	
+	int num;
+	boolean flag = true;
+	
+	//主线程执行
+	public synchronized void add(){
+		
+		if(flag){
+			
+			try {
+				
+				this.wait();
+				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		for(int i=0; i<5; i++){
+			
+			System.out.println(Thread.currentThread().getName() + "加1------>" + (++num));
+		}
+		flag = false;
+		this.notify();
+		
+	}
+	
+	//子线程执行
+	public synchronized void sub(){
+		
+		if(!flag){
+			
+			try {
+				
+				this.wait();
+				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		for(int i=0; i<5; i++){
+			
+			System.out.println(Thread.currentThread().getName() + "减1------>" + (--num));
+		}
+		flag = true;
+		this.notify();
+	}
+	
+}
+
+
+class SubThread implements Runnable{
+
+	private ModifyType mt;
+	public SubThread(ModifyType mt) {
+	
+		this.mt = mt;
+	}
+	@Override
+	public void run() {
+		
+		for(int i=0; i<50; i++){
+			
+			mt.sub();
+		}
+		
+	}
+	
+}

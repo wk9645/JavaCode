@@ -1,0 +1,20 @@
+package com.wk.entity;
+
+import com.wk.service.INetService;
+import com.wk.service.impl.ServicePackage;
+
+public class NetPackage extends ServicePackage implements INetService{
+
+	
+	
+	/**
+	 * 网虫套餐
+	 */
+	
+	@Override
+	public int netPlay(int flow, MobileCard card) {
+		// TODO 自动生成的方法存根
+		return 0;
+	}
+
+}

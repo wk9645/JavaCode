@@ -1,0 +1,38 @@
+package com.wk.test;
+
+import javax.management.timer.TimerMBean;
+
+public class ThreadTest {
+
+	
+
+}
+
+
+class Climb{
+	
+	
+	int time;
+	int step;
+
+	public ClimbThread(){
+		
+		time = 0;
+		step = 0;
+	}
+
+}
+
+class Young implements Runnable{
+
+	Climb climb;
+	public Young(Climb climb) {
+		this.climb = Climb;
+	}
+	@Override
+	public void run() {
+		
+	}
+	
+	
+}

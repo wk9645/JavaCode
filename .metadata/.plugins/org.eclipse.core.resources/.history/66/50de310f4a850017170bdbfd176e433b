@@ -1,0 +1,73 @@
+package com.wk.entity;
+
+import com.wk.service.ICallService;
+import com.wk.service.ISendService;
+
+	
+	/**
+	 * 话唠套餐
+	 */
+
+
+public class TalkPackage extends ServicePackage implements ICallService,ISendService{
+
+	
+	private int talkTime = 500;
+	private int smsCount = 30;
+	
+	
+	@Override
+	public void showInfo() {
+		
+		System.out.println("话唠套餐：通话时长为500分钟/月，短信条数为30条/月" );
+	}
+	
+	@Override
+	public double call(MobileCard mCard) {
+		
+		int realTalkTime = mCard.getRealTalkTime();
+		if(realTalkTime >= talkTime){
+			price+= 0.2 * (realTalkTime - talkTime);
+		}
+		return price;
+		
+		
+		
+		/*double money = 58;
+		Map<String, List<ConsumeInfo>> map = CardUtil.getMap();
+		List<ConsumeInfo> list = map.get(mCard.getCardNumber());
+		
+		for(ConsumeInfo info : list){
+			
+			if(info.getType() == TypeEnum.通话){
+				int talkTime = info.getConsumeData();
+				if(talkTime >= 500)
+					money+= 0.2 * (talkTime - 500);
+				
+			}
+			if(info.getType() == TypeEnum.短信){
+				int smsCount = info.getConsumeData();
+				if(smsCount >= 30)
+					money+=0.1 * (smsCount - 30);
+			}
+			if(info.getType() == TypeEnum.上网){
+				int flow = info.getConsumeData();
+				if(flow > 1){
+					
+				}
+			}
+		}*/
+		
+	}
+
+	@Override
+	public double send(MobileCard card) {
+		
+		double realSMSCount = card.getRealSMSCount();
+		if(realSMSCount >= smsCount){
+			price+= 0.1 * (realSMSCount - smsCount);
+		}
+		return smsMoney;
+	}
+
+}

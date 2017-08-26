@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mobileCards> 
+  <mobileCard cardNumber="13946445138"> 
+    <userName>wk</userName>  
+    <password>1</password>  
+    <serPackage>话唠套餐</serPackage>  
+    <consumeAmount>0.0</consumeAmount>  
+    <realTalkTime>0</realTalkTime>  
+    <realSMSCount>0</realSMSCount>  
+    <realFlow>0</realFlow> 
+  </mobileCard>  
+</mobileCards>

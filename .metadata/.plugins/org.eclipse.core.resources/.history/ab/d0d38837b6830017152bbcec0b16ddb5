@@ -1,0 +1,15 @@
+package com.wk.service;
+
+public interface IOptions {
+	
+	/*
+	 * 主要功能接口
+	 */
+	
+	
+	boolean register(User){
+		
+	}
+	
+
+}

@@ -1,0 +1,101 @@
+package com.wk.test2;
+
+/*
+ * 子线程执行10次，主线程执行100次，这样交替执行50次
+ * 
+ */
+public class MainAndSubThread {
+
+	private static int num;
+	private static ModifyType mt;
+	
+	
+	
+	public static void main(String[] args) {
+		
+		for(int i =0; i<50; i++){
+			
+			
+			
+		}
+		
+	}
+	
+	
+	//执行主线程
+	public static void mianExecute(int i){
+		
+		new Thread(new SubThread(mt, num))
+	}
+	//执行子线程
+	public static void subExecute(int i){
+		
+	}
+	
+}
+
+class ModifyType{
+	
+	
+	boolean flag = true;
+	
+	//主线程执行
+	public synchronized void add(int num){
+		
+		if(flag){
+			
+			try {
+				
+				this.wait();
+				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		System.out.println(Thread.currentThread().getName() + "加1------>" + (++num));
+		this.notify();
+		
+	}
+	
+	//子线程执行
+	public synchronized void sub(int num){
+		
+		if(!flag){
+			
+			try {
+				
+				this.wait();
+				
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		System.out.println(Thread.currentThread().getName() + "减1------>" + (--num));
+		this.notify();
+	}
+	
+}
+
+
+class SubThread implements Runnable{
+
+	private ModifyType mt;
+	private int num;
+	public SubThread(ModifyType mt,int num) {
+	
+		this.num = num;
+		this.mt = mt;
+	}
+	@Override
+	public void run() {
+		
+		for(int i=0; i<5; i++){
+			
+			mt.sub(num);
+		}
+		
+	}
+	
+}

@@ -1,0 +1,87 @@
+package com.wk.entity;
+
+public class MobileCard {
+
+	
+	private String cardNumber;
+	private String userName;
+	private String password;
+	private SerivcePackage serPackage;
+	private double consumeAmount;		//消费次数
+	private int realTalkTime;			//真实通话时间
+	private int realSMSCount;			//真实SMS次数
+	private int realFlow;				//真实流量
+	
+	
+	
+	
+	/*
+	 * Getter和Setter
+	 */
+	
+	public String getCardNumber() {
+		return cardNumber;
+	}
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public SerivcePackage getSerPackage() {
+		return serPackage;
+	}
+	public void setSerPackage(SerivcePackage serPackage) {
+		this.serPackage = serPackage;
+	}
+	public double getConsumeAmount() {
+		return consumeAmount;
+	}
+	public void setConsumeAmount(double consumeAmount) {
+		this.consumeAmount = consumeAmount;
+	}
+	public int getRealTalkTime() {
+		return realTalkTime;
+	}
+	public void setRealTalkTime(int realTalkTime) {
+		this.realTalkTime = realTalkTime;
+	}
+	public int getRealSMSCount() {
+		return realSMSCount;
+	}
+	public void setRealSMSCount(int realSMSCount) {
+		this.realSMSCount = realSMSCount;
+	}
+	public int getRealFlow() {
+		return realFlow;
+	}
+	public void setRealFlow(int realFlow) {
+		this.realFlow = realFlow;
+	}
+	
+	//打印信息
+	public void showMsg(){
+		
+		System.out.println("卡信息如下：");
+		System.out.println("卡号：" + cardNumber);
+		System.out.println("用户名：" + userName);
+		System.out.println("密码：" + password);
+		System.out.println("套餐：" + serPackage.showInfo());
+		System.out.println("消费次数：" + consumeAmount);
+		System.out.println("真实通话：" + realTalkTime);
+		System.out.println("SMS：" + realSMSCount);
+		System.out.println("流量：" + realFlow);
+	
+		
+	}
+	
+}

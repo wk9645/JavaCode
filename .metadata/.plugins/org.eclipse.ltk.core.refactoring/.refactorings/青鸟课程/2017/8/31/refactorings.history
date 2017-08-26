@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Test.java&apos; to &apos;线程测试/src/线程测试&apos;&#x0D;&#x0A;－ 原始项目：“青鸟课程”&#x0D;&#x0A;－ 目标元素：“线程测试/src/线程测试”&#x0D;&#x0A;－ 原始元素：“com.wk.test.Test.java”&#x0D;&#x0A;－ 更新对已重构元素的引用" description="移动编译单元" destination="=线程测试/src&lt;线程测试" element1="/src&lt;com.wk.test{Test.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1501582093763" units="1" version="1.0"/>
+</session>

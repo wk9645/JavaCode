@@ -1,0 +1,68 @@
+package Ïß³Ì²âÊÔ;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class LockTest {
+
+
+	int i = 10;
+	private Lock lock = new ReentrantLock();
+	
+	public static void main(String[] args) {
+	
+		LockTest lt = new LockTest();
+		
+			
+			new Thread(lt.new Thread1()).start();
+			new Thread(lt.new Thread2()).start();
+		
+		
+	}
+	
+	public class Thread1 implements Runnable{
+
+		
+		@Override
+		public void run() {
+
+			while(true){
+				
+				synchronized(this){
+					
+					System.out.println("¼Ó1->>>"+ 5 / (i++));
+				}
+			}
+		}
+		
+	}
+	
+	public class Thread2 implements Runnable{
+
+		@Override
+		public void run() {
+
+			while(true){
+				
+				/*synchronized(this){
+					
+					i--;
+					System.out.println("¼õ1->>>"+ 5 / (i--));
+				}*/
+				
+				lock.lock();
+				
+				try{
+					
+					
+				}catch(Exception e){
+					
+					e.printStackTrace(s);
+				}
+				
+			}
+		}
+		
+	}
+	
+}

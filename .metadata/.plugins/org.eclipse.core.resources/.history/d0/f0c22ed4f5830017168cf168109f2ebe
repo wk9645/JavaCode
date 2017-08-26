@@ -1,0 +1,38 @@
+package com.wk.entity;
+
+import com.wk.service.ICallService;
+import com.wk.service.ISendService;
+
+public class TalkPackage extends ServicePackage implements ICallService,ISendService{
+
+	/**
+	 * 话唠套餐
+	 */
+	
+	
+	private int talkTime = 500;
+	private int smsCount = 30;
+	
+	
+	@Override
+	protected void showInfo() {
+		
+		System.out.println("话唠套餐：通话时长为500分钟/月，短信条数为30条/月" );
+	}
+	
+	@Override
+	public int call(int minCount, MobileCard card) {
+		
+		
+		return 0;
+	}
+
+	@Override
+	public int send(int count, MobileCard card) {
+		
+		
+		
+		return 0;
+	}
+
+}

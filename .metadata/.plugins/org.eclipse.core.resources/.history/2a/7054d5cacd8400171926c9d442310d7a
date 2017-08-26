@@ -1,0 +1,16 @@
+package com.wk.entity;
+
+
+/**
+ * 消费信息
+ * @author wk
+ *
+ */
+public class ConsumeInfo {
+
+	
+	private int talkTime;
+	private int smsCount;
+	private int flow;
+	private double price;
+}

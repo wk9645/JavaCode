@@ -1,0 +1,16 @@
+package com.wk.service;
+
+import com.wk.entity.MobileCard;
+
+public interface INetService {
+
+	
+	/**
+	 *	通话接口 
+	 */
+	
+	
+	
+	int call(int minCount, MobileCard card);
+	
+}

@@ -1,0 +1,42 @@
+package com.wk.service;
+
+import com.wk.entity.User;
+
+public interface IOptions {
+	
+	/*
+	 * 主要功能接口
+	 */
+	
+	
+	/**
+	 * 
+	 * @param user	用户信息
+	 * @return		注册状态，true为成功
+	 */
+	boolean register(User user);
+	
+	/**
+	 * 
+	 * @param user	登录用户
+	 * @return		登录状态，true为成功
+	 */
+	boolean login(User user); 
+	
+	
+	/**
+	 * 查询当月账单
+	 */
+	void consumeQueryCurrMon();
+	
+
+	/**
+	 * 套餐余量
+	 */
+	void remainingPackage();
+	
+	
+	
+	void addAndPrintConsume()；
+	
+}

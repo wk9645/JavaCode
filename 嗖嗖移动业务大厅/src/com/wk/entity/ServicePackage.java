@@ -1,0 +1,14 @@
+package com.wk.entity;
+
+public abstract class ServicePackage {
+
+	
+	
+	protected Double price;		//价格
+	
+	/**
+	 * 套餐信息
+	 */
+	public abstract void showInfo();
+	
+}
